@@ -11,6 +11,9 @@ import {
   ListMenuItem,
   CodeContainer,
   ProjectContainer,
+  CodeEditor,
+  MacButtons,
+  ButtonHighlight,
 } from "./styles";
 
 import "./styles.css";
@@ -19,7 +22,7 @@ const Home = () => {
   return (
     <div className="page">
       <Header />
-      <Container fluid>
+      <PageContainer>
         <Row>
           <Col lg="3">
             <MenuContainer>
@@ -42,8 +45,16 @@ const Home = () => {
           </Col>
           <Col lg="6">
             <CodeContainer>
-              <button>Visualizar com o highlight</button>
+              <CodeEditor>
+                <MacButtons>
+                  <div></div>
+                  <div></div>
+                  <div></div>
+                </MacButtons>
+                <textarea name="" id="" cols={30} rows={10}></textarea>
+              </CodeEditor>
             </CodeContainer>
+            <ButtonHighlight>Visualizar com o highlight</ButtonHighlight>
           </Col>
           <Col lg="3">
             <ProjectContainer>
@@ -51,7 +62,7 @@ const Home = () => {
             </ProjectContainer>
           </Col>
         </Row>
-      </Container>
+      </PageContainer>
     </div>
   );
 };

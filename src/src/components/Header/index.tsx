@@ -14,7 +14,7 @@ import {
 
 import "./styles.css";
 
-const Header = () => {
+const Header: React.FC = () => {
   return (
     <>
       <PageHeader>

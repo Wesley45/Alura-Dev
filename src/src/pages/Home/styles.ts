@@ -4,10 +4,10 @@ export const PageContainer = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  padding: 0 1.6rem 1.6rem 1.6rem;
+  margin: 0 1.6rem 4rem 1.6rem;
 
   @media (min-width: 768px) {
-    padding: 0 3.2rem 3.2rem 3.2rem;
+    margin: 0 3.2rem 4rem 3.2rem;
   }
 
   @media (min-width: 992px) {
@@ -17,7 +17,7 @@ export const PageContainer = styled.div`
 
 export const MenuContainer = styled.div`
   display: none;
-  width: 25%;
+  width: 25vw;
 
   p {
     color: #ffffff;
@@ -38,37 +38,56 @@ export const ListMenu = styled.ul`
   flex-direction: column;
   justify-content: center;
   list-style: none;
+
+  @media (min-width: 992px) {
+    width: 18.9rem;
+  }
 `;
 
 export const ListMenuItem = styled.li`
-  align-items: center;
-  display: flex;
-
   & + li {
     margin-top: 1.6rem;
   }
 
-  div {
+  a {
     align-items: center;
-    background: #5081fb;
-    border-radius: 16px;
     display: flex;
-    justify-content: center;
-    margin-right: 1.6rem;
-    height: 4.8rem;
-    width: 4.8rem;
+    text-decoration: none;
 
-    svg {
+    div {
+      align-items: center;
+      background: #5081fb;
+      border-radius: 1.6rem;
+      display: flex;
+      justify-content: center;
+      margin-right: 1.6rem;
+      height: 4.8rem;
+      opacity: 0.48;
+      width: 4.8rem;
+
+      svg {
+        color: #ffffff;
+        font-size: 1.6rem;
+      }
+    }
+
+    span {
       color: #ffffff;
       font-size: 1.6rem;
+      font-weight: 400;
+      line-height: 2.4rem;
+      opacity: 0.56;
     }
-  }
 
-  span {
-    color: #ffffff;
-    font-size: 1.6rem;
-    font-weight: 400;
-    line-height: 2.4rem;
+    &:hover > div,
+    &:hover span {
+      opacity: 0.8;
+    }
+
+    &:active > div,
+    &:hover span {
+      opacity: 1;
+    }
   }
 `;
 
@@ -76,7 +95,7 @@ export const CodeContainer = styled.div`
   width: 100%;
 
   @media (min-width: 992px) {
-    width: 50%;
+    width: 50vw;
   }
 `;
 
@@ -149,7 +168,7 @@ export const ProjectContainer = styled.div`
   padding-left: 0;
   width: 100%;
 
-  p {
+  h2 {
     color: #ffffff;
     font-size: 1.2rem;
     line-height: 1.8rem;
@@ -197,13 +216,27 @@ export const ProjectContainer = styled.div`
     line-height: 2.4rem;
     margin-top: 3.2rem;
     text-align: center;
+    transition: background 0.3s ease-in-out;
     width: 100%;
+
+    &:hover {
+      background: #7ba4fc;
+    }
+
+    &:active {
+      background: #7ba4fc;
+      border: 4px solid rgba(80, 129, 251, 0.72);
+    }
+
+    &:focus {
+      background: #96b9fd;
+    }
   }
 
   @media (min-width: 992px) {
     margin-top: 0;
     padding-left: 4rem;
-    width: 25%;
+    width: 25vw;
   }
 `;
 
@@ -216,7 +249,21 @@ export const ButtonHighlight = styled.button`
   line-height: 2.4rem;
   margin-top: 3.2rem;
   height: 5.6rem;
+  transition: background 0.3s ease-in-out;
   width: 100%;
+
+  &:hover {
+    background: rgba(80, 129, 251, 0.16);
+  }
+
+  &:active {
+    background: rgba(80, 129, 251, 0.16);
+    border: 4px solid rgba(80, 129, 251, 0.24);
+  }
+
+  &:focus {
+    background: rgba(80, 129, 251, 0.24);
+  }
 `;
 
 export const CustomizationContainer = styled.div`
@@ -236,20 +283,52 @@ export const CustomizationContainer = styled.div`
     width: 100%;
   }
 
-  div {
-    background: rgba(196, 196, 196, 0.01);
-    border: 1px solid #ffffff;
-    box-sizing: border-box;
-    border-radius: 0.8rem;
-    height: 5.6rem;
-    padding: 0.8rem;
-    width: 100%;
-
-    input {
-      border-radius: 4px;
-      border: 0;
-      height: 100%;
-      width: 100%;
+  @media (min-width: 768px) {
+    div {
+      display: flex;
+      justify-content: space-between;
     }
+
+    select {
+      margin-bottom: 0;
+      margin-right: 0.8rem;
+    }
+  }
+
+  @media (min-width: 992px) {
+    div {
+      display: block;
+    }
+
+    select {
+      margin-bottom: 1.6rem;
+      margin-right: 0;
+    }
+  }
+`;
+
+export const InputColor = styled.div`
+  background: rgba(196, 196, 196, 0.01);
+  border: 1px solid #ffffff;
+  box-sizing: border-box;
+  border-radius: 0.8rem;
+  height: 5.6rem;
+  padding: 0.8rem;
+  width: 100%;
+
+  @media (min-width: 768px) {
+    margin-left: 0.8rem;
+  }
+
+  @media (min-width: 992px) {
+    margin-left: 0;
+  }
+
+  input {
+    background: #6bd1ff;
+    border-radius: 4px;
+    border: 0;
+    height: 100%;
+    width: 100%;
   }
 `;

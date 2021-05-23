@@ -1,5 +1,6 @@
-import React from "react";
-import { Container, Image, Navbar } from "react-bootstrap";
+import React, { useState } from "react";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faCode, faSearch, faUsers } from "@fortawesome/free-solid-svg-icons";
 
 import {
   PageHeader,
@@ -10,13 +11,25 @@ import {
   Avatar,
   Username,
   InputSearch,
+  IconsContainer,
+  Hamburger,
+  Search,
+  PageHeaderMobile,
+  StyledBurger,
 } from "./styles";
+import { ListMenu, ListMenuItem } from "../../pages/Home/styles";
 
 import "./styles.css";
 
 const Header: React.FC = () => {
+  const [open, setOpen] = useState(false);
+
+  const handleOnClickMenu = () => {
+    setOpen(!open);
+  };
+
   return (
-    <>
+    <header>
       <PageHeader>
         <PageContainerLogo>
           <Logo src="/logo.svg" alt="Logo Alura Dev" />
@@ -25,32 +38,58 @@ const Header: React.FC = () => {
           <InputSearch type="text" placeholder="Busque por algo" />
         </PageContainerInput>
         <PageContainerAvatar>
+          <a href="">
+            <Avatar
+              src="https://avatars.githubusercontent.com/u/38232335?v=4"
+              alt="Foto de perfil"
+            />
+            <Username>Wesley</Username>
+          </a>
+        </PageContainerAvatar>
+        <IconsContainer>
+          <Search>
+            <div>
+              <FontAwesomeIcon icon={faSearch} />
+            </div>
+          </Search>
+          <Hamburger>
+            <div>
+              <StyledBurger open={open} onClick={handleOnClickMenu}>
+                <div />
+                <div />
+                <div />
+              </StyledBurger>
+            </div>
+          </Hamburger>
+        </IconsContainer>
+      </PageHeader>
+
+      <PageHeaderMobile open={open}>
+        <ListMenu>
+          <ListMenuItem>
+            <div>
+              <FontAwesomeIcon icon={faCode} />
+            </div>
+            <span>Editor de código</span>
+          </ListMenuItem>
+          <ListMenuItem>
+            <div>
+              <FontAwesomeIcon icon={faUsers} />
+            </div>
+            <span>Comunidade</span>
+          </ListMenuItem>
+        </ListMenu>
+        <hr />
+
+        <div>
           <Avatar
             src="https://avatars.githubusercontent.com/u/38232335?v=4"
             alt="Foto de perfil"
           />
           <Username>Wesley</Username>
-        </PageContainerAvatar>
-      </PageHeader>
-      <Navbar className="page-header d-none">
-        <Navbar.Brand href="#home" className="page__container">
-          <img src="/logo.svg" className="img-fluid" alt="Logo Alura Dev" />
-        </Navbar.Brand>
-        <input
-          type="text"
-          placeholder="Busque por algo"
-          className="page-search"
-        />
-        <div className="page__container page__container__avatar">
-          <Image
-            src="https://avatars.githubusercontent.com/u/38232335?v=4"
-            className="page__avatar"
-            roundedCircle
-          />
-          <p className="page__name">Wesley</p>
         </div>
-      </Navbar>
-    </>
+      </PageHeaderMobile>
+    </header>
   );
 };
 

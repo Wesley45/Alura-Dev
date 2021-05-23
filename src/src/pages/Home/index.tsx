@@ -15,6 +15,7 @@ import {
   ButtonHighlight,
   ProjectContainer,
   CustomizationContainer,
+  InputColor,
 } from "./styles";
 
 const Home: React.FC = () => {
@@ -26,16 +27,20 @@ const Home: React.FC = () => {
           <p>Menu</p>
           <ListMenu>
             <ListMenuItem>
-              <div>
-                <FontAwesomeIcon icon={faCode} />
-              </div>
-              <span>Editor de código</span>
+              <a href="">
+                <div>
+                  <FontAwesomeIcon icon={faCode} />
+                </div>
+                <span>Editor de código</span>
+              </a>
             </ListMenuItem>
             <ListMenuItem>
-              <div>
-                <FontAwesomeIcon icon={faUsers} />
-              </div>
-              <span>Comunidade</span>
+              <a href="">
+                <div>
+                  <FontAwesomeIcon icon={faUsers} />
+                </div>
+                <span>Comunidade</span>
+              </a>
             </ListMenuItem>
           </ListMenu>
         </MenuContainer>
@@ -53,7 +58,7 @@ const Home: React.FC = () => {
           <ButtonHighlight>Visualizar com o highlight</ButtonHighlight>
         </CodeContainer>
         <ProjectContainer>
-          <p>Seu projeto</p>
+          <h2>Seu projeto</h2>
           <input
             type="text"
             name="project"
@@ -69,17 +74,22 @@ const Home: React.FC = () => {
           ></textarea>
 
           <CustomizationContainer>
-            <p>Personalização</p>
-            <select name="language" id="language">
-              <option value="">JavaScript</option>
-            </select>
+            <h2>Personalização</h2>
+
             <div>
-              <input
-                type="color"
-                id="favcolor"
-                name="favcolor"
-                value="#6BD1FF"
-              ></input>
+              <select name="language" id="language">
+                <option value="">JavaScript</option>
+                <option value="">HTML</option>
+                <option value="">CSS</option>
+              </select>
+              <InputColor>
+                <input
+                  type="color"
+                  id="favcolor"
+                  name="favcolor"
+                  value="#6BD1FF"
+                ></input>
+              </InputColor>
             </div>
           </CustomizationContainer>
 

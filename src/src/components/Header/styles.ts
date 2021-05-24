@@ -1,4 +1,4 @@
-import styled from "styled-components";
+import styled from 'styled-components';
 
 export const PageHeader = styled.div`
   align-items: center;
@@ -174,7 +174,7 @@ export const PageHeaderMobile = styled.div<{
   padding: 2.4rem;
   position: fixed;
   top: 8rem;
-  right: ${({ open }) => (open ? "0" : "-25.4rem")};
+  right: ${({ open }) => (open ? '0' : '-25.4rem')};
   width: 25.4rem;
   height: 100%;
   transition: right 0.2s linear;
@@ -228,16 +228,74 @@ export const StyledBurger = styled.button<{
     transform-origin: 1px;
 
     :first-child {
-      transform: ${({ open }) => (open ? "rotate(45.4deg)" : "rotate(0)")};
+      transform: ${({ open }) => (open ? 'rotate(45.4deg)' : 'rotate(0)')};
     }
 
     :nth-child(2) {
-      opacity: ${({ open }) => (open ? "0" : "1")};
-      transform: ${({ open }) => (open ? "translateX(20px)" : "translateX(0)")};
+      opacity: ${({ open }) => (open ? '0' : '1')};
+      transform: ${({ open }) => (open ? 'translateX(20px)' : 'translateX(0)')};
     }
 
     :nth-child(3) {
-      transform: ${({ open }) => (open ? "rotate(-45.4deg)" : "rotate(0)")};
+      transform: ${({ open }) => (open ? 'rotate(-45.4deg)' : 'rotate(0)')};
+    }
+  }
+`;
+
+export const ListMenu = styled.ul`
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  list-style: none;
+
+  @media (min-width: 992px) {
+    width: 18.9rem;
+  }
+`;
+
+export const ListMenuItem = styled.li`
+  & + li {
+    margin-top: 1.6rem;
+  }
+
+  a {
+    align-items: center;
+    display: flex;
+    text-decoration: none;
+
+    div {
+      align-items: center;
+      background: #5081fb;
+      border-radius: 1.6rem;
+      display: flex;
+      justify-content: center;
+      margin-right: 1.6rem;
+      height: 4.8rem;
+      opacity: 0.48;
+      width: 4.8rem;
+
+      svg {
+        color: #ffffff;
+        font-size: 1.6rem;
+      }
+    }
+
+    span {
+      color: #ffffff;
+      font-size: 1.6rem;
+      font-weight: 400;
+      line-height: 2.4rem;
+      opacity: 0.56;
+    }
+
+    &:hover > div,
+    &:hover span {
+      opacity: 0.8;
+    }
+
+    &:active > div,
+    &:hover span {
+      opacity: 1;
     }
   }
 `;

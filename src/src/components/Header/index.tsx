@@ -1,6 +1,6 @@
-import React, { useState } from "react";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faCode, faSearch, faUsers } from "@fortawesome/free-solid-svg-icons";
+import React, { useState } from 'react';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faCode, faSearch, faUsers } from '@fortawesome/free-solid-svg-icons';
 
 import {
   PageHeader,
@@ -16,10 +16,9 @@ import {
   Search,
   PageHeaderMobile,
   StyledBurger,
-} from "./styles";
-import { ListMenu, ListMenuItem } from "../../pages/Home/styles";
-
-import "./styles.css";
+  ListMenu,
+  ListMenuItem,
+} from './styles';
 
 const Header: React.FC = () => {
   const [open, setOpen] = useState(false);
@@ -67,16 +66,20 @@ const Header: React.FC = () => {
       <PageHeaderMobile open={open}>
         <ListMenu>
           <ListMenuItem>
-            <div>
-              <FontAwesomeIcon icon={faCode} />
-            </div>
-            <span>Editor de código</span>
+            <a href="">
+              <div>
+                <FontAwesomeIcon icon={faCode} />
+              </div>
+              <span>Editor de código</span>
+            </a>
           </ListMenuItem>
           <ListMenuItem>
-            <div>
-              <FontAwesomeIcon icon={faUsers} />
-            </div>
-            <span>Comunidade</span>
+            <a href="">
+              <div>
+                <FontAwesomeIcon icon={faUsers} />
+              </div>
+              <span>Comunidade</span>
+            </a>
           </ListMenuItem>
         </ListMenu>
         <hr />

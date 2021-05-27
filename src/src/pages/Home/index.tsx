@@ -1,12 +1,7 @@
-import React from 'react';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faCode, faUsers } from '@fortawesome/free-solid-svg-icons';
+import React, { ChangeEvent, useEffect, useState } from "react";
+import hljs from "highlight.js";
 
 import {
-  PageContainer,
-  MenuContainer,
-  ListMenu,
-  ListMenuItem,
   CodeContainer,
   CodeEditor,
   CodeEditorContainer,
@@ -15,10 +10,26 @@ import {
   ProjectContainer,
   CustomizationContainer,
   InputColor,
-} from './styles';
-import { Link } from 'react-router-dom';
+} from "./styles";
 
 const Home: React.FC = () => {
+  const [language, setLanguage] = useState("javascript");
+
+  useEffect(() => {
+    hljs.highlightAll();
+  }, []);
+
+  const handleOnClickHighlight = () => {
+    const codigo = document.querySelector("code");
+    if (codigo) {
+      hljs.highlightBlock(codigo);
+    }
+  };
+
+  const handleOnChangeSelect = (event: ChangeEvent<HTMLSelectElement>) => {
+    setLanguage(event.target.value);
+  };
+
   return (
     <>
       <CodeContainer>
@@ -29,10 +40,25 @@ const Home: React.FC = () => {
               <div></div>
               <div></div>
             </MacButtons>
-            <textarea name="" id="" cols={30} rows={10}></textarea>
+            <pre>
+              <code
+                className={`preview hljs ${language}`}
+                contentEditable="true"
+                aria-label="editor"
+              ></code>
+            </pre>
+            <textarea
+              name=""
+              id=""
+              cols={30}
+              rows={10}
+              className="d-none"
+            ></textarea>
           </CodeEditor>
         </CodeEditorContainer>
-        <ButtonHighlight>Visualizar com o highlight</ButtonHighlight>
+        <ButtonHighlight onClick={handleOnClickHighlight}>
+          Visualizar com o highlight
+        </ButtonHighlight>
       </CodeContainer>
       <ProjectContainer>
         <h2>Seu projeto</h2>
@@ -54,17 +80,23 @@ const Home: React.FC = () => {
           <h2>Personalização</h2>
 
           <div>
-            <select name="language" id="language">
-              <option value="">JavaScript</option>
-              <option value="">HTML</option>
-              <option value="">CSS</option>
+            <select
+              name="language"
+              id="language"
+              value={language}
+              onChange={handleOnChangeSelect}
+            >
+              <option value="javascript">JavaScript</option>
+              <option value="html">HTML</option>
+              <option value="css">CSS</option>
             </select>
             <InputColor>
               <input
+                onChange={(e) => console.log(e.target.value)}
                 type="color"
                 id="favcolor"
                 name="favcolor"
-                value="#6BD1FF"
+                defaultValue="#6BD1FF"
               ></input>
             </InputColor>
           </div>

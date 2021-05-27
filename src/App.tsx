@@ -15,8 +15,8 @@ const App: React.FC = () => {
         <Router>
           <Sidebar />
           <Switch>
-            {routes.map((route) => (
-              <Route exact path={route.path} component={route.component} />
+            {routes.map((route, index) => (
+              <Route exact key={index} path={route.path} component={route.component} />
             ))}
           </Switch>
         </Router>

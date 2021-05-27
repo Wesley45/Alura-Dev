@@ -1,4 +1,4 @@
-import styled from 'styled-components';
+import styled from "styled-components";
 
 export const PageContainer = styled.div`
   display: flex;
@@ -123,17 +123,36 @@ export const CodeEditor = styled.div`
   padding: 1.6rem;
   width: 100%;
 
-  textarea {
+  pre {
+    //background: transparent;
+    border: 0;
+    color: #ffffff;
+    font-size: 1.4rem;
+    line-height: 1.8rem;
+    margin-top: 2.4rem;
+    height: 23.4rem;
+    resize: none;
+    width: 100%;
+
+    code {
+      /* background: transparent;
+      color: #ffffff; */
+      height: 100%;
+      white-space: pre;
+    }
+  }
+
+  /*  textarea {
     background: transparent;
     border: 0;
     color: #ffffff;
     font-size: 1.4rem;
     line-height: 1.8rem;
     margin-top: 2.4rem;
-    height: 234px;
+    height: 23.4rem;
     resize: none;
     width: 100%;
-  }
+  } */
 `;
 
 export const MacButtons = styled.div`
@@ -281,6 +300,11 @@ export const CustomizationContainer = styled.div`
     opacity: 0.64;
     padding: 0 1.4rem;
     width: 100%;
+
+    option {
+      background-color: rgba(255, 255, 255, 0.16);
+      color: #000000;
+    }
   }
 
   @media (min-width: 768px) {
@@ -325,7 +349,7 @@ export const InputColor = styled.div`
   }
 
   input {
-    background: #6bd1ff;
+    background: none;
     border-radius: 4px;
     border: 0;
     height: 100%;

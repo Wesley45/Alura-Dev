@@ -99,9 +99,11 @@ export const CodeContainer = styled.div`
   }
 `;
 
-export const CodeEditorContainer = styled.div`
+export const CodeEditorContainer = styled.div<{
+  background: string;
+}>`
   align-items: flex-start;
-  background: #6bd1ff;
+  background: ${(props) => props.background};
   border-radius: 0.8rem;
   display: flex;
   flex-direction: column;
@@ -112,6 +114,10 @@ export const CodeEditorContainer = styled.div`
   @media (min-width: 768px) {
     height: 36.6rem;
     padding: 3.2rem;
+  }
+
+  @media (min-width: 992px) {
+    width: calc(50vw - 3.2rem);
   }
 `;
 
@@ -138,7 +144,7 @@ export const CodeEditor = styled.div`
       /* background: transparent;
       color: #ffffff; */
       height: 100%;
-      white-space: pre;
+      white-space: pre-wrap;
     }
   }
 
@@ -207,7 +213,21 @@ export const ProjectContainer = styled.div`
     margin-bottom: 1.6rem;
     opacity: 0.64;
     padding: 0 1.4rem;
+    transition: background 0.3s ease-in-out;
     width: 100%;
+
+    &:hover {
+      background: rgba(255, 255, 255, 0.24);
+    }
+
+    &:focus {
+      background: rgba(255, 255, 255, 0.24);
+      color: #ffffff;
+    }
+
+    &::placeholder {
+      color: #ffffff;
+    }
   }
 
   textarea {
@@ -221,7 +241,21 @@ export const ProjectContainer = styled.div`
     opacity: 0.64;
     padding: 1.6rem 1.4rem;
     resize: none;
+    transition: background 0.3s ease-in-out;
     width: 100%;
+
+    &:hover {
+      background: rgba(255, 255, 255, 0.24);
+    }
+
+    &:focus {
+      background: rgba(255, 255, 255, 0.24);
+      color: #ffffff;
+    }
+
+    &::placeholder {
+      color: #ffffff;
+    }
   }
 
   button {
@@ -240,11 +274,13 @@ export const ProjectContainer = styled.div`
 
     &:hover {
       background: #7ba4fc;
+      border-color: #7ba4fc;
     }
 
     &:active {
       background: #7ba4fc;
-      border: 4px solid rgba(80, 129, 251, 0.72);
+      border-color: rgb(80, 129, 251);
+      box-shadow: 0 0 0 4px rgb(80 129 251 / 72%);
     }
 
     &:focus {
@@ -278,10 +314,12 @@ export const ButtonHighlight = styled.button`
   &:active {
     background: rgba(80, 129, 251, 0.16);
     border: 4px solid rgba(80, 129, 251, 0.24);
+    box-shadow: 0 0 0 4px rgb(80 129 251 / 24%);
   }
 
   &:focus {
     background: rgba(80, 129, 251, 0.24);
+    border-color: rgba(80, 129, 251, 0.08);
   }
 `;
 
@@ -293,17 +331,32 @@ export const CustomizationContainer = styled.div`
     border: 0;
     border-radius: 8px;
     color: #ffffff;
+    cursor: pointer;
     font-size: 1.6rem;
     height: 5.6rem;
     line-height: 2.4rem;
     margin-bottom: 1.6rem;
     opacity: 0.64;
     padding: 0 1.4rem;
+    transition: background 0.3s ease-in-out;
     width: 100%;
 
     option {
       background-color: rgba(255, 255, 255, 0.16);
       color: #000000;
+    }
+
+    &:hover {
+      background: rgba(255, 255, 255, 0.24);
+    }
+
+    &:focus {
+      background: rgba(255, 255, 255, 0.24);
+      color: #ffffff;
+    }
+
+    &::placeholder {
+      color: #ffffff;
     }
   }
 

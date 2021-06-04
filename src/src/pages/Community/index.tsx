@@ -1,4 +1,7 @@
 import React from "react";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faComment, faHeart } from "@fortawesome/free-solid-svg-icons";
+
 import {
   CardCode,
   PageCommunityContainer,
@@ -6,7 +9,11 @@ import {
   CodeEditor,
   MacButtons,
   CardContent,
+  CardActions,
+  CardAction,
+  CardAuthor,
 } from "./styles";
+import { Avatar, Username } from "../../components/Header/styles";
 
 const Community: React.FC = () => {
   return (
@@ -25,6 +32,25 @@ const Community: React.FC = () => {
         <CardContent>
           <h2>Título do projeto</h2>
           <p>Essa é a descrição do meu projeto.</p>
+          <CardActions>
+            <div>
+              <CardAction>
+                <FontAwesomeIcon icon={faComment} />
+                <span>9</span>
+              </CardAction>
+              <CardAction>
+                <FontAwesomeIcon icon={faHeart} />
+                <span>9</span>
+              </CardAction>
+            </div>
+            <CardAuthor>
+              <Avatar
+                src="https://avatars.githubusercontent.com/u/38232335?v=4"
+                alt="Foto de perfil"
+              />
+              <Username>Wesley</Username>
+            </CardAuthor>
+          </CardActions>
         </CardContent>
       </CardCode>
       <CardCode>
@@ -41,6 +67,25 @@ const Community: React.FC = () => {
         <CardContent>
           <h2>Título do projeto</h2>
           <p>Essa é a descrição do meu projeto.</p>
+          <CardActions>
+            <div>
+              <CardAction>
+                <FontAwesomeIcon icon={faComment} />
+                <span>9</span>
+              </CardAction>
+              <CardAction>
+                <FontAwesomeIcon icon={faHeart} />
+                <span>9</span>
+              </CardAction>
+            </div>
+            <CardAuthor>
+              <Avatar
+                src="https://avatars.githubusercontent.com/u/38232335?v=4"
+                alt="Foto de perfil"
+              />
+              <Username>Wesley</Username>
+            </CardAuthor>
+          </CardActions>
         </CardContent>
       </CardCode>
       <CardCode>
@@ -57,6 +102,25 @@ const Community: React.FC = () => {
         <CardContent>
           <h2>Título do projeto</h2>
           <p>Essa é a descrição do meu projeto.</p>
+          <CardActions>
+            <div>
+              <CardAction>
+                <FontAwesomeIcon icon={faComment} />
+                <span>9</span>
+              </CardAction>
+              <CardAction>
+                <FontAwesomeIcon icon={faHeart} />
+                <span>9</span>
+              </CardAction>
+            </div>
+            <CardAuthor>
+              <Avatar
+                src="https://avatars.githubusercontent.com/u/38232335?v=4"
+                alt="Foto de perfil"
+              />
+              <Username>Wesley</Username>
+            </CardAuthor>
+          </CardActions>
         </CardContent>
       </CardCode>
       <CardCode>
@@ -73,6 +137,25 @@ const Community: React.FC = () => {
         <CardContent>
           <h2>Título do projeto</h2>
           <p>Essa é a descrição do meu projeto.</p>
+          <CardActions>
+            <div>
+              <CardAction>
+                <FontAwesomeIcon icon={faComment} />
+                <span>9</span>
+              </CardAction>
+              <CardAction>
+                <FontAwesomeIcon icon={faHeart} />
+                <span>9</span>
+              </CardAction>
+            </div>
+            <CardAuthor>
+              <Avatar
+                src="https://avatars.githubusercontent.com/u/38232335?v=4"
+                alt="Foto de perfil"
+              />
+              <Username>Wesley</Username>
+            </CardAuthor>
+          </CardActions>
         </CardContent>
       </CardCode>
     </PageCommunityContainer>

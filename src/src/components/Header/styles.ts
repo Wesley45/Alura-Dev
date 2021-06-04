@@ -51,6 +51,7 @@ export const InputSearch = styled.input`
   font-size: 1.6rem;
   height: 5.6rem;
   padding: 0px 1.4rem;
+  transition: background 0.3s ease-in-out;
   width: 100%;
 
   @media (min-width: 768px) {

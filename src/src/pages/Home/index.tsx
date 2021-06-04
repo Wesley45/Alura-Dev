@@ -1,4 +1,4 @@
-import React, { ChangeEvent, useEffect, useState } from "react";
+import React, { ChangeEvent, useEffect, useState , useCallback} from "react";
 import hljs from "highlight.js";
 
 import {
@@ -14,6 +14,7 @@ import {
 
 const Home: React.FC = () => {
   const [language, setLanguage] = useState("javascript");
+  const [background, setBackground] = useState("#6bd1ff");
 
   useEffect(() => {
     hljs.highlightAll();
@@ -30,10 +31,14 @@ const Home: React.FC = () => {
     setLanguage(event.target.value);
   };
 
+  const handleOnChangeColor = useCallback((event: ChangeEvent<HTMLInputElement>) => {
+    setBackground(event.target.value)
+  }, [])
+
   return (
     <>
       <CodeContainer>
-        <CodeEditorContainer>
+        <CodeEditorContainer background={background}>
           <CodeEditor>
             <MacButtons>
               <div></div>
@@ -92,7 +97,7 @@ const Home: React.FC = () => {
             </select>
             <InputColor>
               <input
-                onChange={(e) => console.log(e.target.value)}
+                onChange={handleOnChangeColor}
                 type="color"
                 id="favcolor"
                 name="favcolor"

@@ -5,24 +5,32 @@ export const PageCommunityContainer = styled.div`
   display: flex;
   justify-content: space-between;
   flex-wrap: wrap;
-  width: 75vw;
+  width: 100%;
+
+  @media (min-width: 992px) {
+    width: 75vw;
+  }
 `;
 
 export const CardCode = styled.div`
   background: rgba(0, 0, 0, 0.16);
   border-radius: 0.8rem;
-  height: 40rem;
-  margin-bottom: 8.8rem;
-  width: 50%;
+  /* height: 40rem; */
+  margin-bottom: 2.4rem;
+  width: 100%;
 
-  &:nth-child(2n + 1) {
-    margin-right: 1.2rem;
-    width: calc(50% - 1.2rem);
-  }
+  @media (min-width: 992px) {
+    width: 50%;
 
-  &:nth-child(2n) {
-    margin-left: 1.2rem;
-    width: calc(50% - 1.2rem);
+    &:nth-child(2n + 1) {
+      margin-right: 1.2rem;
+      width: calc(50% - 1.2rem);
+    }
+
+    &:nth-child(2n) {
+      margin-left: 1.2rem;
+      width: calc(50% - 1.2rem);
+    }
   }
 `;
 
@@ -84,7 +92,7 @@ export const MacButtons = styled.div`
 `;
 
 export const CardContent = styled.div`
-  height: 11.2rem;
+  /* height: 11.2rem; */
   padding: 2.4rem;
 
   h2 {
@@ -100,5 +108,47 @@ export const CardContent = styled.div`
     line-height: 2.4rem;
     margin: 0.8rem 0;
     opacity: 0.8;
+  }
+`;
+
+export const CardActions = styled.div`
+  align-items: center;
+  display: flex;
+  justify-content: space-between;
+  margin-top: 2.4rem;
+
+  div {
+    align-items: center;
+    display: flex;
+    justify-content: center;
+  }
+`;
+
+export const CardAction = styled.div`
+  align-items: center;
+  color: #fff;
+  display: flex;
+  justify-content: center;
+  padding: 8px;
+
+  svg {
+    font-size: 2rem;
+  }
+
+  span {
+    font-size: 1.6rem;
+    line-height: 2.4rem;
+    margin-left: 0.8rem;
+  }
+`;
+
+export const CardAuthor = styled.a`
+  align-items: center;
+  display: flex;
+  padding: 8px;
+
+  img {
+    height: 2.4rem;
+    width: 2.4rem;
   }
 `;
